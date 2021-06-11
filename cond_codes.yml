@@ -1,0 +1,16 @@
+# Reference: MX-ONE CPI
+# Call Information Logging, Quality Logging, INTERWORKING DESCRIPTION
+# 3/155 19-ANF 901 14 Uen N 2018-01-16
+---
+"7": "Incoming call or tandem call"
+"8": "Internal call"
+"10": "Outgoing call"
+"23": "Abandoned incoming call"
+"25": "Abandoned internal call"
+"28": "Abandoned outgoing call"
+"29": "Calls to busy party"
+"30": "Calls to vacant number"
+"71": "Incoming call or tandem call (The Answering Party is Different from the Dialed Party)"
+"103": "Incoming call or tandem call (Group Hunting Calls)"
+"119": "Abandoned incoming call (Group Hunting Calls)"
+"167": "Incoming call or tandem call (Group Call Pick-Up Calls)"
