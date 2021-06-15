@@ -63,6 +63,7 @@ for fname in dat_list:
         print(tabulate(dur_table, headers="keys", tablefmt="orgtbl"))
 
 print()
+total.sort_values(by="start", inplace=True)
 print(tabulate(total, headers="keys", tablefmt="orgtbl"))
 print("\nTotally: %d minutes" % total["minutes"].sum())
 

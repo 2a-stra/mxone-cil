@@ -11,7 +11,7 @@ Python scripts:
 
 Install python3 dependencies:
 ```
-$ apt-get install pip3
+$ sudo apt install python3-pip
 $ pip3 install pandas tabulate pyyaml
 ```
 
@@ -48,10 +48,24 @@ Copy call logs from `remote-mx1` to local directory `dat` with python scripts:
 $ rsync remote-mx1:/var/opt/eri_sn/call_logging/* ~/dat
 ```
 
-You could put `cron` task for automatic sync every day at 3:15am:
+You could put `cron` task for automatic sync every day at 23:55:
 ```
 $ crontab -e
-15 3 * * * rsync remote-mx1:/var/opt/eri_sn/call_logging/* ~/dat
+55 23 * * * rsync remote-mx1:/var/opt/eri_sn/call_logging/* ~/dat
+```
+
+Shell script to create report `cil_y-m-d.txt`:
+```
+$ cat cil.sh
+#!/bin/bash
+today=$(date +"%Y-%m-%d")
+cd ~/fmc
+python3 ./call_log.py > cil_${today}.txt
+```
+
+Cron task to automatically create report every Sunday at 23:58:
+```
+58 23 * * Sun ./cil.sh
 ```
 
 # Running script
