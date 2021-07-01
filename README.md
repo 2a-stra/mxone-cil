@@ -95,6 +95,7 @@ Starting...
 lim1.4.dat
 Calls:  18693
 Minutes: 9825 (Hours: 163)
+Vacant: 291 numbers
 |    |   Condition codes |   Frequency |   % | Reason                  |
 |----+-------------------+-------------+-----+-------------------------|
 |  0 |                10 |        6781 |  36 | Outgoing call           |
@@ -145,6 +146,9 @@ Minutes: 9825 (Hours: 163)
 
 You could see totally 18693 calls in example above including:
 
-- 6781 calls (36%) with reason `Outgoing calls` lasts 9825 minutes;
+- 6781 calls (36%) was successfully with reason `Outgoing calls` and totally lasts 9825 minutes;
 - 9622 calls (51%) with reason `Abandoned outgoing call`;
-- 12017 calls (64%) with 0 time duration.
+- 12017 calls (64%) with 0 time duration;
+- 993 calls (5%) to vacant numbers (291 numbers).
+
+The vacant numbers are printed to `*_vacant.txt` file for further investigations.

@@ -40,8 +40,9 @@ for fname in dat_list:
     if not calls.empty:
 
         print(fname)
+
+        # Condition codes
         cond_table = f_calls.f_condition(calls)
-        
         calls_num = calls.shape[0]
 
         if not calls_num == 0:
@@ -50,6 +51,7 @@ for fname in dat_list:
             total.loc[fname, "start"] = calls.loc[0, "start time local"]
             total.loc[fname, "end"] = calls.loc[calls_num - 1, "start time local"]
 
+        # Call durations
         dur = f_calls.d_minutes(calls)
         minutes = dur["minutes"].sum()
         print("Minutes: %d (Hours: %d)" % (minutes, minutes/60))
@@ -57,6 +59,12 @@ for fname in dat_list:
 
         dur_table = f_calls.f_duration(calls, dur)
         total.loc[fname, "non-zero calls %"] = 100 - dur_table.loc[0, "%"]
+
+        # Vacant numbers
+        vac = f_calls.vacant(calls)
+        with open(fname + "_vacant.txt",'w') as file:
+            for items in vac:
+                file.writelines(str(items) + '\n')
 
         print(tabulate(cond_table, headers="keys", tablefmt="orgtbl"))
         print()

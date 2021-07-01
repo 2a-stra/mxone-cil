@@ -80,3 +80,11 @@ def f_duration(calls, dur):
     dur_table["%"] = dur_table["%"].astype(int)
 
     return dur_table
+
+
+def vacant(calls):
+
+    vac = set(calls[calls["condition code"] == 30]["dialed number"])
+    print("Vacant: %s numbers" % len(vac))
+    #import pdb; pdb.set_trace()
+    return sorted(vac)
