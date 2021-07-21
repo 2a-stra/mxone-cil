@@ -84,7 +84,10 @@ def f_duration(calls, dur):
 
 def vacant(calls):
 
-    vac = set(calls[calls["condition code"] == 30]["dialed number"])
-    print("Vacant: %s numbers" % len(vac))
+    vac = calls[calls["condition code"] == 30]
     #import pdb; pdb.set_trace()
+    #vac = set(vac["dialed number"].astype(str).map(str.strip))
+    vac = set(vac["dialed number"].astype(int))
+    print("Vacant: %s numbers" % len(vac))
     return sorted(vac)
+
